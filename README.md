@@ -19,4 +19,3 @@
 variable += 1 --> on incrémente 1 à la variable
 variable -= 1 --> on décrémente 1 à la variable
 ... pareil pour variable *= 1, /=1, //=1, %= 1, **= 1
-
