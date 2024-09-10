@@ -7,16 +7,20 @@ def roman_to_int(roman_string):
                             'C': 100, 'D': 500, 'M': 1000}
     # Dictionary mapping roman numerals
     sum_roman_num = 0
-    # Initialize sum of roman numerals
-    for i in range(len(roman_string)):
-        roman_num = roman_to_integer_map[roman_string[i]]
-        # Get the integer value of the roman numeral
-        if i > 0 and roman_string[i - 1] == 'I' \
-                and roman_num > roman_to_integer_map['I']:
-            sum_roman_num += roman_num - 2 * roman_to_integer_map['I']
-        # If the previous roman numeral is 'I'
-        # and the current roman numeral is greater than 'I'
+    prev_roman_num = 0
+    # Initialize sum of roman numerals and previous value
+    for i in roman_string:
+        current_roman_num = roman_to_integer_map.get(i, 0)
+        # Get the value of the current roman numeral
+        if current_roman_num > prev_roman_num:
+            sum_roman_num += current_roman_num - 2 * prev_roman_num
+            # If the current value is greater than the previous value,
+            # subtract the previous value from the current value and add
+            # it to the sum
         else:
-            sum_roman_num += roman_num
-        # Add the value of the roman numeral to the sum
+            sum_roman_num += current_roman_num
+            # Add the current value to the sum
+        prev_roman_num = current_roman_num
+        # Get the previous value
+
     return sum_roman_num
