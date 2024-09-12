@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def add_integer(a, b=98):
-    
+
     """Function that adds 2 integers.
     Parameters:
     a (int): The first integer.
@@ -8,7 +8,7 @@ def add_integer(a, b=98):
 
     Returns:
     int: The sum of the 2 integers.
-    
+
     Raises:
     TypeError: If a or b is not an integer or a float.
     """
