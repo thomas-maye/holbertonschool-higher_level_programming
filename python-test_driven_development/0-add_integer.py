@@ -2,7 +2,6 @@
 """Function that adds 2 integers."""
 
 def add_integer(a, b=98):
-
     """
     Parameters:
     a (int): The first integer.
