@@ -30,3 +30,21 @@ TypeError: first_name must be a string
 Test 7: Prénom vide
 >>> say_my_name("", "Doe")
 My name is  Doe
+
+Test 8: Prénom et Nom vide
+>>> say_my_name("", "")
+My name is  
+
+Test 9: sans arguments
+>>> say_my_name()
+Traceback (most recent call last):
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Test 10: avec un None en Prénom
+>>> say_my_name(None)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+Test 11: avec des caractères spéciaux
+>>> say_my_name("Tömas", "Mayé")
+My name is Tömas Mayé
