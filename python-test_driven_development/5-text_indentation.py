@@ -18,10 +18,6 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    c = 0
-    while c < len(text) and text[c] == ' ':
-        c += 1
-
     index = 0
     while index < len(text) and text[index] == ' ':
         index += 1
