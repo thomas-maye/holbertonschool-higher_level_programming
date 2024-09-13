@@ -1,0 +1,36 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test 1: Texte normal avec ponctuation
+>>> text_indentation("Hello. How are you? I am fine: thank you.") 
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+I am fine:
+<BLANKLINE>
+thank you.
+<BLANKLINE>
+
+Test 2: Texte sans ponctuation
+>>> text_indentation("Hello How are you I am fine thank you") 
+Hello How are you I am fine thank you
+
+Test 3: Texte avec espaces en début et fin
+>>> text_indentation("   Hello. How are you?   ") 
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+
+Test 4: Texte vide
+>>> text_indentation("") 
+
+Test 5: Texte non string (int)
+>>> text_indentation(123)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+Test 6: Texte non string (None)
+>>> text_indentation(None)
+Traceback (most recent call last):
+TypeError: text must be a string
