@@ -1,0 +1,32 @@
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Test 1: Nom complet
+>>> say_my_name("John", "Doe")
+My name is John Doe
+
+Test 2: Prénom seulement
+>>> say_my_name("John")
+My name is John 
+
+Test 3: Nom de famille vide
+>>> say_my_name("John", "")
+My name is John 
+
+Test 4: Prénom non string
+>>> say_my_name(123, "Doe")
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+Test 5: Nom de famille non string
+>>> say_my_name("John", 123)
+Traceback (most recent call last):
+TypeError: last_name must be a string
+
+Test 6: Prénom et nom de famille non string
+>>> say_my_name(123, 456)
+Traceback (most recent call last):
+TypeError: first_name must be a string
+
+Test 7: Prénom vide
+>>> say_my_name("", "Doe")
+My name is  Doe
