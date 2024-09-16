@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module creates a class Square that defines a square"""
+"""This module defines a class Square."""
 
 
 class Square:
@@ -18,20 +18,16 @@ class Square:
             None
         """
         self.__size = size
-
-    @property
-    def size(self):
-        """Retrieves the size."""
-        return self.__size
-
-    @size.setter
-    def size(self, value):
-        if type(value) is not int:
+        if type(size) is not int:
             raise TypeError("size must be an integer")
-        if value < 0:
+        if size < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value
+        self.__size = size
 
     def area(self):
-        """Returns the current square area."""
+        """Calculates the area of a square
+
+        Returns:
+            The area of the square
+        """
         return self.__size ** 2
