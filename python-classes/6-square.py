@@ -8,7 +8,7 @@ class Square:
     Attributes:
         __size (int): size of a square's side
     """
-    def __init__(self, size=0 , position=(0, 0)):
+    def __init__(self, size=0, position=(0, 0)):
         """Initializes a square
 
         Args:
@@ -32,7 +32,7 @@ class Square:
     def size(self):
         """int: size of a square's side"""
         return self.__size
-    
+
     @property
     def position(self):
         """tuple: position of the square"""
