@@ -66,7 +66,7 @@ class Rectangle:
         if self.width == 0 or self.height == 0:
             return 0
         return 2 * (self.width + self.height)
-    
+
     def __str__(self):
         """Prints the rectangle with the character #"""
         if self.width == 0 or self.height == 0:
@@ -103,7 +103,7 @@ class Rectangle:
         if rect_1.area() >= rect_2.area():
             return rect_1
         return rect_2
-    
+
     @classmethod
     def square(cls, size=0):
         """ Returns a new Rectangle instance with width == height == size"""
