@@ -64,7 +64,9 @@ class Rectangle:
         return 2 * (self.width + self.height)
 
     def __str__(self):
-        """Prints the rectangle with the character #"""
+        """Prints the rectangle with the character #, .rstrip() method that
+            removes all blank lines at the end"""
+
         if self.width == 0 or self.height == 0:
             return ""
         rect_str = ""
