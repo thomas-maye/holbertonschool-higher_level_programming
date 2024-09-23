@@ -63,7 +63,7 @@ Traceback (most recent call last):
 ValueError: min int must be greater than 0
 
 >>> print(BaseGeometry.__doc__)
-Represent base geometry.
+A class BaseGeometry based on 6-base_geometry.py
 
 >>> print(BaseGeometry.area.__doc__)
-Exception
+Raises an Exception with the message area() is not implemented
