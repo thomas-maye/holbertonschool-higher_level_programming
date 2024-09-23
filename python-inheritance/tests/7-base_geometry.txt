@@ -10,55 +10,55 @@ Exception: area() is not implemented
 >>> BaseGeometry().integer_validator("width", 102)
 102
 
->>> bg.integer_validator("name", "Thomas")
+>>> BaseGeometry().integer_validator("name", "Thomas")
 Traceback (most recent call last):
 TypeError: name must be an integer
 
->>> bg.integer_validator("age", 0)
+>>> BaseGeometry().integer_validator("age", 0)
 Traceback (most recent call last):
 ValueError: age must be greater than 0
 
->>> bg.integer_validator("distance", -7)
+>>> BaseGeometry().integer_validator("distance", -7)
 Traceback (most recent call last):
 ValueError: distance must be greater than 0
 
->>> bg.integer_validator("average", 1.2)
+>>> BaseGeometry().integer_validator("average", 1.2)
 Traceback (most recent call last):
 TypeError: average must be an integer
 
->>> bg.integer_validator("list", [1, 2, 3])
+>>> BaseGeometry().integer_validator("list", [1, 2, 3])
 Traceback (most recent call last):
 TypeError: list must be an integer
 
->>> bg.integer_validator("dict", {"key": "value"})
+>>> BaseGeometry().integer_validator("dict", {"key": "value"})
 Traceback (most recent call last):
 TypeError: dict must be an integer
 
->>> bg.integer_validator("tuple", (1, 2))
+>>> BaseGeometry().integer_validator("tuple", (1, 2))
 Traceback (most recent call last):
 TypeError: tuple must be an integer
 
->>> bg.integer_validator("set", {1, 2, 3})
+>>> BaseGeometry().integer_validator("set", {1, 2, 3})
 Traceback (most recent call last):
 TypeError: set must be an integer
 
->>> bg.integer_validator("bool", True)
+>>> BaseGeometry().integer_validator("bool", True)
 Traceback (most recent call last):
 TypeError: bool must be an integer
 
->>> bg.integer_validator("none", None)
+>>> BaseGeometry().integer_validator("none", None)
 Traceback (most recent call last):
 TypeError: none must be an integer
 
->>> bg.integer_validator("infinity", float('inf'))
+>>> BaseGeometry().integer_validator("infinity", float('inf'))
 Traceback (most recent call last):
 TypeError: infinity must be an integer
 
->>> bg.integer_validator("nan", float('nan'))
+>>> BaseGeometry().integer_validator("nan", float('nan'))
 Traceback (most recent call last):
 TypeError: nan must be an integer
 
->>> bg.integer_validator("min int", -2**31)
+>>> BaseGeometry().integer_validator("min int", -2**31)
 Traceback (most recent call last):
 ValueError: min int must be greater than 0
 
