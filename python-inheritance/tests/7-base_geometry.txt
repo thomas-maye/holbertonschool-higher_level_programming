@@ -7,10 +7,8 @@ Traceback (most recent call last):
 Exception: area() is not implemented
 
 >>> bg.integer_validator("my_int", 12)
-12
 
 >>> bg.integer_validator("width", 89)
-89
 
 >>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
@@ -63,3 +61,9 @@ TypeError: nan must be an integer
 >>> bg.integer_validator("min int", -2**31)
 Traceback (most recent call last):
 ValueError: min int must be greater than 0
+
+>>> print(BaseGeometry.__doc__)
+Represent base geometry.
+
+>>> print(BaseGeometry.area.__doc__)
+Exception
