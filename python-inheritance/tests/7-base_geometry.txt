@@ -6,13 +6,13 @@
 Traceback (most recent call last):
 Exception: area() is not implemented
 
->>> bg.integer_validator("my_int", 3)
-3
+>>> bg.integer_validator("my_int", 12)
+12
 
->>> bg.integer_validator("width", 102)
-102
+>>> bg.integer_validator("width", 89)
+89
 
->>> bg.integer_validator("name", "Thomas")
+>>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
 TypeError: name must be an integer
 
@@ -20,7 +20,7 @@ TypeError: name must be an integer
 Traceback (most recent call last):
 ValueError: age must be greater than 0
 
->>> bg.integer_validator("distance", -7)
+>>> bg.integer_validator("distance", -4)
 Traceback (most recent call last):
 ValueError: distance must be greater than 0
 
