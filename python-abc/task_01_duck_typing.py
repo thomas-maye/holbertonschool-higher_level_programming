@@ -23,7 +23,7 @@ class Circle(Shape):
     """Create a Circle class."""
     def __init__(self, radius):
         """Create a constructor for Circle class."""
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         """Create an area method for Circle class.
