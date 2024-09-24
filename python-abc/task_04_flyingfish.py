@@ -35,3 +35,12 @@ class FlyingFish(Fish, Bird):
         """A method that prints : The flying fish lives both in
         water and sky"""
         print("The flying fish lives both in water and sky!")
+
+if __name__ == "__main__":
+    """Testing and Method Resolution Order Exploration"""
+    flying_fish = FlyingFish()
+
+    flying_fish.fly()
+    flying_fish.swim()
+    flying_fish.habitat()
+    print(FlyingFish.mro())
