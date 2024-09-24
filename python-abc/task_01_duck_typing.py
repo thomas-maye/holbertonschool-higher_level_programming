@@ -2,7 +2,6 @@
 """Shapes Interfaces and Duck Typing."""
 import math
 from abc import ABC, abstractmethod
-from math import pi
 
 
 class Shape(ABC):
@@ -26,11 +25,11 @@ class Circle(Shape):
 
     def area(self):
         """Create an area method for Circle class."""
-        return pi * self.radius ** 2
+        return math.pi * self.radius ** 2
 
     def perimeter(self):
         """Create a perimeter method for Circle class."""
-        return 2 * pi * self.radius
+        return 2 * math.pi * self.radius
 
 
 class Rectangle(Shape):
