@@ -46,3 +46,8 @@ class Rectangle(Shape):
     def perimeter(self):
         """Create a perimeter method for Rectangle class."""
         return 2 * (self.width + self.height)
+
+def shape_info(shape):
+    """Print the area and perimeter of a shape."""
+    print("Area: {}".format(shape.area()))
+    print("Perimeter: {}".format(shape.perimeter()))
