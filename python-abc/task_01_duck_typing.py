@@ -72,5 +72,5 @@ def shape_info(shape):
     Args:
         shape (Shape): A shape object.
     """
-    print("Area:", shape.area())
-    print("Perimeter:", shape.perimeter())
+    print("Area: {}".format(shape.area()))
+    print("Perimeter: {}".format(shape.perimeter()))
