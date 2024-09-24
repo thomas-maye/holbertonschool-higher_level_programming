@@ -8,7 +8,7 @@ class BaseGeometry:
 
     def area(self):
         """Raises an Exception with the message area() is not implemented
-        
+
         Raises:
             Exception: with the message area() is not implemented
         """
@@ -72,9 +72,6 @@ class Square(Rectangle):
         Args:
             width: integer
             height: integer
-
-        Raises:
-
         """
         self.integer_validator("size", size)
         super().__init__(size, size)
