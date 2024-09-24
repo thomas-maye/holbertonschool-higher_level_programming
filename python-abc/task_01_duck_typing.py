@@ -25,11 +25,19 @@ class Circle(Shape):
         self.radius = radius
 
     def area(self):
-        """Create an area method for Circle class."""
+        """Create an area method for Circle class.
+        
+        Returns:
+            int: pi * self.radius ** 2
+        """
         return pi * self.radius ** 2
 
     def perimeter(self):
-        """Create a perimeter method for Circle class."""
+        """Create a perimeter method for Circle class.
+        
+        Returns:
+            int: 2 * pi * self.radius
+        """
         return 2 * pi * self.radius
 
 
@@ -41,11 +49,19 @@ class Rectangle(Shape):
         self.height = height
 
     def area(self):
-        """Create an area method for Rectangle class."""
+        """Create an area method for Rectangle class.
+        
+        Returns:
+            int: self.width * self.height
+        """
         return self.width * self.height
 
     def perimeter(self):
-        """Create a perimeter method for Rectangle class."""
+        """Create a perimeter method for Rectangle class.
+        
+        Returns:
+            int: 2 * (self.width + self.height)
+        """
         return 2 * (self.width + self.height)
 
 
