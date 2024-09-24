@@ -7,7 +7,10 @@ class BaseGeometry:
     """A class BaseGeometry based on 6-base_geometry.py"""
 
     def area(self):
-        """Raises an Exception with the message area() is not implemented"""
+        """Raises an Exception with the message area() is not implemented
+        
+        Raises:
+            Exception: with the message area() is not implemented"""
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
@@ -45,7 +48,10 @@ class Rectangle(BaseGeometry):
         return self.__width * self.__height
 
     def __str__(self):
-        """Returns a string representation of a Rectangle object"""
+        """Returns a string representation of a Rectangle object
+        Returns:
+            string: [Rectangle] {}/{}
+        """
         return "[{}] {}/{}".format(self.__class__.__name__, self.__width, self.__height)
 
 
