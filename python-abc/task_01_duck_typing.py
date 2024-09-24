@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Shapes Interfaces and Duck Typing."""
+
 import math
 from abc import ABC, abstractmethod
 from math import pi
@@ -26,7 +27,7 @@ class Circle(Shape):
 
     def area(self):
         """Create an area method for Circle class.
-        
+
         Returns:
             int: pi * self.radius ** 2
         """
@@ -34,7 +35,7 @@ class Circle(Shape):
 
     def perimeter(self):
         """Create a perimeter method for Circle class.
-        
+
         Returns:
             int: 2 * pi * self.radius
         """
@@ -50,7 +51,7 @@ class Rectangle(Shape):
 
     def area(self):
         """Create an area method for Rectangle class.
-        
+
         Returns:
             int: self.width * self.height
         """
@@ -58,7 +59,7 @@ class Rectangle(Shape):
 
     def perimeter(self):
         """Create a perimeter method for Rectangle class.
-        
+
         Returns:
             int: 2 * (self.width + self.height)
         """
@@ -66,6 +67,10 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
-    """Print the area and perimeter of a shape."""
+    """Print the area and perimeter of a shape.
+
+    Args:
+        shape (Shape): A shape object.
+    """
     print("Area: {}".format(shape.area()))
     print("Perimeter: {}".format(shape.perimeter()))
