@@ -29,7 +29,7 @@ class Circle(Shape):
         """Create an area method for Circle class.
 
         Returns:
-            int: pi * self.radius ** 2
+            float: Area of the circle.
         """
         return pi * self.radius ** 2
 
@@ -37,7 +37,7 @@ class Circle(Shape):
         """Create a perimeter method for Circle class.
 
         Returns:
-            int: 2 * pi * self.radius
+            float: Perimeter of the circle.
         """
         return 2 * pi * self.radius
 
@@ -53,7 +53,7 @@ class Rectangle(Shape):
         """Create an area method for Rectangle class.
 
         Returns:
-            int: self.width * self.height
+            int: Area of the rectangle.
         """
         return self.width * self.height
 
@@ -61,7 +61,7 @@ class Rectangle(Shape):
         """Create a perimeter method for Rectangle class.
 
         Returns:
-            int: 2 * (self.width + self.height)
+            int: Perimeter of the rectangle.
         """
         return 2 * (self.width + self.height)
 
