@@ -16,7 +16,7 @@ class Dog(Animal):
         """Create a sound method for Dog"""
         return "Bark"
     
-class cat(Animal):
+class Cat(Animal):
     """Create a Cqat Class"""
     def sound(self):
         """Create a sound method for Cat"""
