@@ -33,8 +33,8 @@ class FlyingFish(Fish, Bird):
 
     def habitat(self):
         """A method that prints : The flying fish lives both in
-        water and sky"""
-        print("The flying fish lives both in water and sky!")
+        water and the sky"""
+        print("The flying fish lives both in water and the sky!")
 
 if __name__ == "__main__":
     """Testing and Method Resolution Order Exploration"""
