@@ -78,3 +78,10 @@ python-inheritance/8-main.py
 python-inheritance/9-main.py
 python-inheritance/10-main.py
 python-inheritance/11-main.py
+
+python-abc/main_05_dragon.py
+python-abc/main_04_flyingfish.py
+python-abc/main_03_countediterator.py
+python-abc/main_02_verboselist.py
+python-abc/main_01_duck_typing.py
+python-abc/main_00_abc.py
