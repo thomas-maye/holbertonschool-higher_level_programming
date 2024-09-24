@@ -10,7 +10,8 @@ class BaseGeometry:
         """Raises an Exception with the message area() is not implemented
         
         Raises:
-            Exception: with the message area() is not implemented"""
+            Exception: with the message area() is not implemented
+        """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
@@ -34,6 +35,7 @@ class Rectangle(BaseGeometry):
 
     def __init__(self, width, height):
         """Initializes a Rectangle object
+
         Args:
             width: integer
             height: integer
@@ -60,6 +62,7 @@ class Square(Rectangle):
 
     def __init__(self, size):
         """Initializes a Rectangle object
+        
         Args:
             width: integer
             height: integer
