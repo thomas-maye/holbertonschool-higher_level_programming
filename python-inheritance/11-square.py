@@ -20,11 +20,12 @@ class BaseGeometry:
         Args:
             name: string
             value: integer
+
         Raises:
             TypeError: if value is not an integer
             ValueError: if value is less than or equal to 0
         """
-        if type(value) is not int:
+        if not isinstance(value, int):
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
@@ -41,6 +42,7 @@ class Rectangle(BaseGeometry):
             height: integer
 
         Raises:
+            Without
         """
         self.__width = width
         self.__height = height
@@ -57,7 +59,8 @@ class Rectangle(BaseGeometry):
         Returns:
             string: [Rectangle] {}/{}
         """
-        return "[{}] {}/{}".format(self.__class__.__name__, self.__width, self.__height)
+        return "[{}] {}/{}".format(
+            self.__class__.__name__, self.__width, self.__height)
 
 
 class Square(Rectangle):
