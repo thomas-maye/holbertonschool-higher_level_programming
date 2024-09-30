@@ -6,7 +6,7 @@ class Student:
     """A class Student that defines a student"""
     def __init__(self, first_name, last_name, age):
         """Initializes a student instance
-        
+
         Args:
             first_name (str): The first name of the student
             last_name (str): The last name of the student
@@ -21,10 +21,10 @@ class Student:
 
     def to_json(self, attrs=None):
         """Retrieves a dictionary representation of a Student instance
-        
+
         Args:
             attrs (list): A list of strings
-        
+
         Returns:
             dict: A dictionary representation of a Student instance
         """
