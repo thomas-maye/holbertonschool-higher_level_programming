@@ -6,7 +6,7 @@ Dictionary."""
 import json as j
 
 
-def serialize_dict_to_json_file(dictionary, filename):
+def serialize_dict_to_json_file(data, filename):
     """Serialize the dictionary to a JSON file.
 
     Args:
@@ -14,7 +14,7 @@ def serialize_dict_to_json_file(dictionary, filename):
         file_path (str): The file path to save the JSON file.
     """
     with open(filename, 'w') as file:
-        j.dump(dictionary, file)
+        j.dump(data, file)
 
 
 def load_and_deserialize(filename):
