@@ -6,24 +6,24 @@ Dictionary."""
 import json as j
 
 
-def serialize_dict_to_json_file(dictionary, file_path):
+def serialize_dict_to_json_file(dictionary, filename):
     """Serialize the dictionary to a JSON file.
 
     Args:
         dictionary (dict): The dictionary to serialize.
         file_path (str): The file path to save the JSON file.
     """
-    with open(file_path, 'w') as file:
+    with open(filename, 'w') as file:
         j.dump(dictionary, file)
 
 
-def load_and_deserialize(file_path):
+def load_and_deserialize(filename):
     """Load and deserialize a JSON file to a Python dictionary.
 
     Args:
         file_path (str): The file path to load the JSON file.
     """
-    with open(file_path, 'r') as file:
+    with open(filename, 'r') as file:
         return j.load(file)
 
 
