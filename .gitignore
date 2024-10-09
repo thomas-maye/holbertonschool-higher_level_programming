@@ -116,3 +116,4 @@ python-serialization/data.csv
 python-serialization/data.json
 .DS_Store
 .vscode/
+restful-api/main_02_requests.py
