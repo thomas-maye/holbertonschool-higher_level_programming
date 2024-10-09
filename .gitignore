@@ -114,3 +114,5 @@ python-input_output/my_fake.json
 
 python-serialization/data.csv
 python-serialization/data.json
+.DS_Store
+.vscode/
