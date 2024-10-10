@@ -4,9 +4,11 @@
 import http.server
 import json
 
+PORT = 8000
 
 class RequestHandler(http.server.BaseHTTPRequestHandler):
     """Handle HTTP requests"""
+    
     def do_GET(self):
         """Handle GET requests"""
         if self.path == "/":
@@ -43,9 +45,6 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
             self.wfile.write(b"Endpoint not found\n")
-
-
-PORT = 8000
 
 
 if __name__ == "__main__":
