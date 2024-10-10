@@ -8,15 +8,19 @@ PORT = 8000
 
 
 class RequestHandler(http.server.BaseHTTPRequestHandler):
-    """Handle HTTP requests"""
+    """
+    Handle HTTP requests
+    """
 
     def do_GET(self):
-        """Handle GET requests"""
+        """
+        Handle GET requests
+        """
         if self.path == "/":
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Hello, this is a simple API!\n")
+            self.wfile.write(b"Hello, this is a simple API!")
 
         elif self.path == "/data":
             data = {"name": "John", "age": 30, "city": "New York"}
@@ -33,7 +37,6 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
-
             self.wfile.write(json.dumps(info).encode("utf-8"))
 
         elif self.path == "/status":
@@ -50,7 +53,6 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    # Create the server, binding to localhost on port 8000
     with http.server.HTTPServer(("", PORT), RequestHandler) as httpd:
         print(f"Serving on port {PORT}...")
         httpd.serve_forever()
