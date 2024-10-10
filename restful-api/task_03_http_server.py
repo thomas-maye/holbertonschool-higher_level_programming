@@ -1,5 +1,11 @@
 #!/usr/bin/python3
-"""Develop a simple API using Python with the `http.server` module"""
+"""Develop a simple API using Python with the `http.server` module
+to handle different GET requests for different endpoints.
+- Home route `/`
+- Data route `/data`
+- Info route `/info`
+- Status route `/status`
+"""
 
 import http.server
 import json
@@ -9,12 +15,18 @@ PORT = 8000
 
 class RequestHandler(http.server.BaseHTTPRequestHandler):
     """
-    Handle HTTP requests
+    Custom HTTP server handler to manage different GET endpoints.
     """
 
     def do_GET(self):
         """
-        Handle GET requests
+        Handle GET requests for different endpoints.
+        Routes available:
+        - `/` - Home route
+        - `/data` - Return a JSON object
+        - `/info` - Return API information
+        - `/status` - Return a simple status message
+        - Other routes will return a 404 response
         """
         if self.path == "/":
             self.send_response(200)
