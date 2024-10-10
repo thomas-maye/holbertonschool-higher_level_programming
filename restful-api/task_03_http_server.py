@@ -6,9 +6,10 @@ import json
 
 PORT = 8000
 
+
 class RequestHandler(http.server.BaseHTTPRequestHandler):
     """Handle HTTP requests"""
-    
+
     def do_GET(self):
         """Handle GET requests"""
         if self.path == "/":
