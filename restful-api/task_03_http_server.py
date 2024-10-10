@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Develop a simple API using Python with the `http.server` module"""
+
 import http.server
-import socketserver
 import json
 
 
@@ -17,7 +17,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
 
         elif self.path == "/data":
             self.send_response(200)
-            self.send_header("Content-Type", "text/plain")
+            self.send_header("Content-Type", "application/json")
             self.end_headers()
             data = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(json.dumps(data).encode("utf-8"))
@@ -48,6 +48,8 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
 PORT = 8000
 
 
-with socketserver.TCPServer(("", PORT), RequestHandler) as httpd:
-    print(f"Serving on port {PORT}")
-    httpd.serve_forever()
+if __name__ == "__main__":
+    # Create the server, binding to localhost on port 8000
+    with http.server.HTTPServer(("", PORT), RequestHandler) as httpd:
+        print(f"Serving on port {PORT}...")
+        httpd.serve_forever()
