@@ -24,7 +24,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_header("Content-type", "application/json")
             self.end_headers()
             info = {
-                "version": "1.0", 
+                "version": "1.0",
                 "description": "A simple API built with http.server"
                 }
             self.wfile.write(json.dumps(info).encode("utf-8"))
@@ -35,8 +35,10 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"Endpoint Not Found\n")
 
+
 PORT = 8000
 
-with socketserver.TCPServer(("", PORT), RequestHandler) as http_a:
+
+with socketserver.TCPServer(("", PORT), RequestHandler) as httpd:
     print(f"Serving on port {PORT}")
-    http_a.serve_forever()
+    httpd.serve_forever()
