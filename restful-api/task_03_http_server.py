@@ -11,9 +11,10 @@ import http.server
 import json
 
 PORT = 8000
+Handler = http.server.SimpleHTTPRequestHandler
 
 
-class RequestHandler(http.server.BaseHTTPRequestHandler):
+class RequestHandler(Handler):
     """
     Custom HTTP server handler to manage different GET endpoints.
     """
