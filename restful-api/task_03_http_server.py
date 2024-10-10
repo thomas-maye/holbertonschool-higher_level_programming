@@ -30,10 +30,10 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(info).encode("utf-8"))
 
         else:
-            self.send_response(404 Not found)
+            self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Endpoint Not Found\n")
+            self.wfile.write(b"404 Not Found\n")
 
 
 PORT = 8000
