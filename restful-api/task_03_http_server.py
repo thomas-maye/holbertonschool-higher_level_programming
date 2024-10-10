@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """Develop a simple API using Python with the `http.server` module
 to handle different GET requests for different endpoints.
-- Home route `/`
-- Data route `/data`
-- Info route `/info`
-- Status route `/status`
+- '/' - Home route
+- '/data' - Return a JSON object
+- '/info' - Return API information
+- '/status' - Return a simple status message
 """
 
 import http.server
@@ -28,7 +28,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
         - `/status` - Return a simple status message
         - Other routes will return a 404 response
         """
-        if self.path == "/":
+        if self.path == '/':
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
@@ -39,7 +39,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
-            self.wfile.write(json.dumps(data).encode("utf-8"))
+            self.wfile.write(json.dumps(data).encode('utf-8'))
 
         elif self.path == "/info":
             info = {
@@ -49,13 +49,13 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.end_headers()
-            self.wfile.write(json.dumps(info).encode("utf-8"))
+            self.wfile.write(json.dumps(info).encode('utf-8'))
 
         elif self.path == "/status":
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write(b'OK')
+            self.wfile.write(b"OK")
 
         else:
             self.send_response(404)
