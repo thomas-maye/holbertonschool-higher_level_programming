@@ -1,11 +1,14 @@
 #!/usr/bin/python3
+"""Develop a simple API using Python with the `http.server` module"""
 import http.server
 import socketserver
 import json
 
 
 class RequestHandler(http.server.BaseHTTPRequestHandler):
+    """Handle HTTP requests"""
     def do_GET(self):
+        """Handle GET requests"""
         if self.path == "/":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
