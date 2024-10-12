@@ -2,7 +2,6 @@
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
-
 """The users dictionary will store the user details."""
 users = {}
 
@@ -49,9 +48,10 @@ def add_user():
     """
     Endpoint to add a new user.
     """
+    if not request.json or 'username' not in request.json:
+        return jsonify({"error": "Invalid request"}), 400
     new_user = request.get_json()
-
-    username = new_user.get("username")
+    username = new_user.get["username"]
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
