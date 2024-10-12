@@ -1,6 +1,4 @@
-"""
-Create a Flask application.
-"""
+"""Create a Flask application."""
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
