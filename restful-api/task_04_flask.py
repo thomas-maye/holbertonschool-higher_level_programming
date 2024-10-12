@@ -24,7 +24,8 @@ def data():
     """
     Endpoint to return a JSON object.
     """
-    return jsonify(list(users.keys())), 200
+    usernames = list(users.keys())
+    return jsonify(usernames), 200
 
 
 @app.route('/status')
@@ -40,12 +41,14 @@ def user(username):
     """
     Endpoint to return the details of a user.
     """
-    if username in users:
-        return jsonify(users[username])
+    user = users.get(username)
+    if user:
+        return jsonify(user), 200
     if username is None:
         return jsonify({"error": "User is required"}), 400
     else:
         return jsonify({"error": "User not found"}), 404
+    
     
     
 @app.route('/add_user', methods=['POST'])
