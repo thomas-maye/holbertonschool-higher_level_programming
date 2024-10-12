@@ -1,4 +1,3 @@
-"""Create a Flask application."""
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
@@ -12,7 +11,7 @@ def home():
     """
     Endpoint to display a welcome message.
     """
-    return "<p>Welcome to the Flask API!</p>"
+    return "Welcome to the Flask API!"
 
 
 @app.route('/data')
@@ -29,7 +28,7 @@ def status():
     """
     Endpoint to return a simple status message.
     """
-    return "<p>OK</p>"
+    return "OK"
 
 
 @app.route('/users/<username>')
