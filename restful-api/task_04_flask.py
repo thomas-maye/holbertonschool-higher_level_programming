@@ -15,7 +15,7 @@ def home():
 
 
 @app.route('/data')
-def get_data():
+def get_usernames():
     """
     Endpoint to return a JSON object.
     """
@@ -41,9 +41,6 @@ def get_user(username):
         return jsonify(user)
     else:
         return jsonify({"error": "User not found"}), 404
-    
-    if username is None:
-        return jsonify({"error": "Username is required"}), 400
 
 
 @app.route('/add_user', methods=['POST'])
@@ -51,18 +48,18 @@ def add_user():
     """
     Endpoint to add a new user.
     """
-    if not request.json or 'username' not in request.json:
-        return jsonify({"error": "Invalid request"}), 400
-
     new_user = request.get_json()
 
+    # Check if the username is provided.
     username = new_user.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
+    # Check if the user already exists.
     if username in users:
         return jsonify({"error": "User already exists"}), 400
 
+    # Add the new user to the dictionary.
     users[username] = {
         "username": new_user.get("username"),
         "name": new_user.get("name"),
