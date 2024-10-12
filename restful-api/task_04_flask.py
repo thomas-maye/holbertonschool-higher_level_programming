@@ -43,27 +43,25 @@ def user(username):
     """
     user = users.get(username)
     if user:
-        return jsonify(user), 200
-    if username is None:
-        return jsonify({"error": "User is required"}), 400
+        return jsonify(user)
     else:
         return jsonify({"error": "User not found"}), 404
-    
-    
-    
+
+
 @app.route('/add_user', methods=['POST'])
 def add_user():
     """
     Endpoint to add a new user.
     """
     new_user = request.get_json()
+
     username = new_user.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
     if username in users:
         return jsonify({"error": "User already exists"}), 400
-    
+
     users[username] = {
         "username": new_user.get("username"),
         "name": new_user.get("name"),
