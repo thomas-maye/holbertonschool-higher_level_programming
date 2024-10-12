@@ -41,6 +41,9 @@ def get_user(username):
         return jsonify(user)
     else:
         return jsonify({"error": "User not found"}), 404
+    
+    if username is None:
+        return jsonify({"error": "Username is required"}), 400
 
 
 @app.route('/add_user', methods=['POST'])
