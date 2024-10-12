@@ -61,10 +61,10 @@ def add_user():
 
     # Add the new user to the dictionary.
     users[username] = {
-        "username": new_user.get("username"),
-        "name": new_user.get("name"),
-        "age": new_user.get("age"),
-        "city": new_user.get("city")
+        "username": new_user.get('username'),
+        "name": new_user.get('name'),
+        "age": new_user.get('age'),
+        "city": new_user.get('city')
     }
 
     return jsonify({"message": "User added", "user": users[username]}), 201
