@@ -1,13 +1,11 @@
-from flask import Flask, jsonify, request
-import json
-
 """
 Create a Flask application.
 """
+from flask import Flask, jsonify, request
+
 app = Flask(__name__)
-"""
-The users dictionary will store the user details.
-"""
+
+"""The users dictionary will store the user details."""
 users = {}
 
 
@@ -68,6 +66,7 @@ def add_user():
         "age": new_user.get("age"),
         "city": new_user.get("city")
     }
+
     return jsonify({"message": "User is added", "user": users[username]}), 201
 
 
