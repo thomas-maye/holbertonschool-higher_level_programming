@@ -24,7 +24,7 @@ def data():
     """
     Endpoint to return a JSON object.
     """
-    return jsonify(list(users.keys()))
+    return jsonify(list(users.keys())), 200
 
 
 @app.route('/status')
@@ -42,19 +42,25 @@ def user(username):
     """
     if username in users:
         return jsonify(users[username])
+    if username is None:
+        return jsonify({"error": "User is required"}), 400
     else:
         return jsonify({"error": "User not found"}), 404
-
-
+    
+    
 @app.route('/add_user', methods=['POST'])
 def add_user():
     """
     Endpoint to add a new user.
     """
-    if not request.json or "username" not in request.json:
-        return jsonify({"error": "User is required"}), 400
     new_user = request.get_json()
-    username = new_user["username"]
+    username = new_user.get("username")
+    if not username:
+        return jsonify({"error": "Username is required"}), 400
+
+    if username in users:
+        return jsonify({"error": "User already exists"}), 400
+    
     users[username] = {
         "username": new_user.get("username"),
         "name": new_user.get("name"),
