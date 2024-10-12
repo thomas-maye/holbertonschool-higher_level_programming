@@ -51,10 +51,10 @@ def add_user():
     """
     Endpoint to add a new user.
     """
-    new_user = request.get_json()
+    new_user_data = request.get_json()
 
     # Check if the username is provided.
-    username = new_user.get("username")
+    username = new_user_data.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
@@ -64,10 +64,10 @@ def add_user():
 
     # Add the new user to the dictionary.
     users[username] = {
-        "username": new_user.get('username'),
-        "name": new_user.get('name'),
-        "age": new_user.get('age'),
-        "city": new_user.get('city')
+        "username": new_user_data.get('username'),
+        "name": new_user_data.get('name'),
+        "age": new_user_data.get('age'),
+        "city": new_user_data.get('city')
     }
 
     return jsonify({"message": "User added", "user": users[username]}), 201
