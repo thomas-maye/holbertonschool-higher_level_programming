@@ -2,7 +2,8 @@
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
-"""The users dictionary will store the user details."""
+
+# Dictionary to store user details.
 users = {}
 
 
@@ -15,7 +16,7 @@ def home():
 
 
 @app.route('/data')
-def data():
+def get_data():
     """
     Endpoint to return a JSON object.
     """
@@ -32,7 +33,7 @@ def status():
 
 
 @app.route('/users/<username>')
-def user(username):
+def get_user(username):
     """
     Endpoint to return the details of a user.
     """
@@ -65,7 +66,7 @@ def add_user():
         "city": new_user.get("city")
     }
 
-    return jsonify({"message": "User is added", "user": users[username]}), 201
+    return jsonify({"message": "User added", "user": users[username]}), 201
 
 
 """
