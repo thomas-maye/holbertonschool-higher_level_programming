@@ -41,6 +41,9 @@ def get_user(username):
         return jsonify(user)
     else:
         return jsonify({"error": "User not found"}), 404
+    
+    if username is None:
+        return jsonify({"error": "Username is required"}), 400
 
 
 @app.route('/add_user', methods=['POST'])
@@ -50,8 +53,10 @@ def add_user():
     """
     if not request.json or 'username' not in request.json:
         return jsonify({"error": "Invalid request"}), 400
+
     new_user = request.get_json()
-    username = new_user.get["username"]
+
+    username = new_user.get("username")
     if not username:
         return jsonify({"error": "Username is required"}), 400
 
@@ -68,8 +73,6 @@ def add_user():
     return jsonify({"message": "User added", "user": users[username]}), 201
 
 
-"""
-Run the Flask application.
-"""
 if __name__ == '__main__':
+    # Run the Flask app.
     app.run()
