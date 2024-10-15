@@ -23,12 +23,12 @@ jwt = JWTManager(app)
 users = {
     "user1": {
         "username": "user1",
-        "password": generate_password_hash("password_user1"),
+        "password": generate_password_hash("password"),
         "role": "user"
     },
     "admin1": {
         "username": "admin1",
-        "password": generate_password_hash("password_admin1"),
+        "password": generate_password_hash("password"),
         "role": "admin"
     }
 }
@@ -56,7 +56,7 @@ def home():
 @auth.login_required
 def basic_protected():
     """Method to return a protected response"""
-    return jsonify(message="Basic Auth: Access Granted")
+    return "Basic Auth: Access Granted"
 
 @app.route('/signup', methods=['POST'])
 def signup():
@@ -93,7 +93,7 @@ def login():
 @jwt_required()
 def jwt_protected():
     """Method to return a protected response"""
-    return jsonify(message="JWT Auth: Access Granted")
+    return "JWT Auth: Access Granted"
 
 
 # Role based protected route
@@ -104,7 +104,7 @@ def admin_only():
     current_user = get_jwt_identity()
     if current_user['role'] != 'admin':
         return jsonify({"error": "Admin access required"}), 403
-    return jsonify(message="Admin Access: Granted")
+    return "Admin Access: Granted"
 
 
 # Custom error handlers for JWT
