@@ -11,7 +11,7 @@ from flask_jwt_extended import (JWTManager, create_access_token,
 app = Flask(__name__)
 
 # Role based protected route
-app.config["SECRET_KEY"] = "thisisasecretkey"
+app.config["SECRET_KEY"] = 'thisisasecretkey'
 
 # Create an instance of HTTPBasicAuth for basic authentication
 auth = HTTPBasicAuth()
@@ -52,7 +52,7 @@ def home():
 
 
 # Basic Authenticationprotected route
-@app.route('/basic-protected', methods=['GET'])
+@app.route('/basic-protected')
 @auth.login_required
 def basic_protected():
     """Method to return a protected response"""
@@ -62,8 +62,8 @@ def basic_protected():
 def signup():
     """Method to signup a user"""
     data = request.get_json()
-    username = data.get("username", None)
-    password = data.get("password", None)
+    username = data.get("username")
+    password = data.get("password")
     if not username:
         return jsonify({"error": "Missing username"}), 400
     if not password:
