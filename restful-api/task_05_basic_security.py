@@ -58,8 +58,9 @@ jwt = JWTManager(app)
 # Create a route to login and get a JWT token
 @app.route("/login", methods=["POST"])
 def login():
-    username = request.json.get("username", None)
-    password = request.json.get("password", None)
+    data = request.get_json()
+    username = data.get("username", None)
+    password = data.json.get("password", None)
     if not username or not password:
         return jsonify({"message": "Missing username or password"}), 400
     user = users.get(username)
