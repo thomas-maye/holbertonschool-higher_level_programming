@@ -1,16 +1,23 @@
+#!/usr/bin/env python
 """Create an Secure API with Flask using Basic and JWT Authentication."""
 from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_jwt_extended import JWTManager, create_access_token
-from flask_jwt_extended import jwt_required, get_jwt_identity
+from flask_jwt_extended import (JWTManager, create_access_token,
+                                jwt_required, get_jwt_identity)
 
 
 # Create a Flask app
 app = Flask(__name__)
 
+# Role based protected route
+app.config["SECRET_KEY"] = "thisisasecretkey"
+
 # Create an instance of HTTPBasicAuth for basic authentication
 auth = HTTPBasicAuth()
+
+# Create an instance of JWTManager for JWT authentication
+jwt = JWTManager(app)
 
 # Create a dictionary of users with their passwords
 users = {
@@ -31,9 +38,9 @@ users = {
 @auth.verify_password
 def verify_password(username, password):
     """Method to verify the username and password"""
-    if username in users and check_password_hash(
-            users[username]["password"], password):
-        return users[username]
+    user = users.get(username)
+    if user and check_password_hash(user['password'], password):
+        return user
     return None
 
 
@@ -51,11 +58,20 @@ def basic_protected():
     """Method to return a protected response"""
     return jsonify(message="Basic Auth: Access Granted")
 
-
-# Role based protected route
-app.config["JWT_SECRET_KEY"] = "your_secret_key"
-jwt = JWTManager(app)
-
+@app.route('/signup', methods=['POST'])
+def signup():
+    """Method to signup a user"""
+    data = request.get_json()
+    username = data.get("username", None)
+    password = data.get("password", None)
+    if not username:
+        return jsonify({"error": "Missing username"}), 400
+    if not password:
+        return jsonify({"error": "Missing password"}), 400
+    if username in users:
+        return jsonify({"error": "User already exists"}), 400
+    users[username] = {"username": username, "password": generate_password_hash(password), "role": "user"}
+    return jsonify({"message": "User created", "user": users[username]})
 
 # Login route to get a token
 @app.route('/login', methods=['POST'])
@@ -65,20 +81,15 @@ def login():
     username = data.get("username")
     password = data.get("password")
     user = users.get(username)
-    if not user:
-        return jsonify({"error": "Invalid username"}), 401
-    if not check_password_hash(user["password"], password):
-        return jsonify({"error": "Invalid password"}), 401
-    if user and check_password_hash(user["password"], password):
-        access_token = create_access_token(identity={
-            "username": username, "role": user["role"]})
-        return jsonify({"access_token": access_token}), 200
-    else:
-        return jsonify({"error": "Invalid credentials"}), 401
+    if user and check_password_hash(user['password'], password):
+        access_token = create_access_token(identity={'username': username,
+                                                     'role': user['role']})
+        return jsonify(access_token=access_token)
+    return jsonify({"error": "Invalid credentials"}), 401
 
 
 # JWT Authentication protected route
-@app.route('/jwt-protected', methods=['GET'])
+@app.route('/jwt-protected')
 @jwt_required()
 def jwt_protected():
     """Method to return a protected response"""
@@ -86,13 +97,11 @@ def jwt_protected():
 
 
 # Role based protected route
-@app.route('/admin-only', methods=['GET'])
+@app.route('/admin-only')
 @jwt_required()
 def admin_only():
     """Method to return a protected response for admin only"""
     current_user = get_jwt_identity()
-    if current_user not in users:
-        return jsonify({"error": "User not found"}), 404
     if current_user['role'] != 'admin':
         return jsonify({"error": "Admin access required"}), 403
     return jsonify(message="Admin Access: Granted")
