@@ -18,16 +18,29 @@ if __name__ == "__main__":
     Returns:
         The states in the database sorted by id
     """
-    db = MySQLdb.connect(  # Connect to the database
-        host="localhost",  # My host, usually localhost
-        user=sys.argv[1],  # The user name specified in the command line
-        passwd=sys.argv[2],  # The password specified in the command line
-        db=sys.argv[3],  # The database name specified in the command line
-        port=3306)  # The port number to connect to MySQL
-cursor = db.cursor()  # Create a cursor object
-cursor.execute("SELECT * FROM states ORDER BY id ASC")  # Execute the query
-states = cursor.fetchall()  # Fetch all the rows in a list of lists
-for state in states:  # Print the states in the list of lists states
-    print(state)  # Print the state
-cursor.close()  # Close the cursor
-db.close()  # Close the database
+    # Connect to the database
+    db = MySQLdb.connect(
+        # My host, usually localhost
+        host="localhost",
+        # The user name specified in the command line
+        user=sys.argv[1],
+        # The password specified in the command line
+        passwd=sys.argv[2],
+        # The database name specified in the command line
+        db=sys.argv[3],
+        # The port number to connect to MySQL
+        port=3306)
+
+# Create a cursor object
+cursor = db.cursor()
+# Execute the query
+cursor.execute("SELECT * FROM states ORDER BY id ASC")
+# Fetch all the rows in a list of lists
+states = cursor.fetchall()
+# Iterate over the rows to print the states
+for state in states:
+    # Print the state
+    print(state)
+# Close the cursor and database
+cursor.close()
+db.close()
