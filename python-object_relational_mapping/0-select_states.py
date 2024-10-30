@@ -1,14 +1,24 @@
 #!/usr/bin/python3
 
 """
-Create a connection to the database and retrieve all states sorted by id
+Create a connection to the database and retrieve all 
+states sorted by id from the database specified in the 
+command line.
 """
 
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    """The code is not executed when the file is importe
+    """
+    Retrieve all states sorted by id from the database 
+    specified in the command line.
+
+    Usage:
+        ./0-select_states.py 
+        <mysql username> 
+        <mysql password> 
+        <database name>
 
     Arguments:
         sys.argv[1]: The MySQL username
