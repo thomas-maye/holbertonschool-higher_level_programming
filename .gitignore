@@ -118,3 +118,5 @@ python-serialization/data.json
 .vscode/
 restful-api/main_02_requests.py
 restful-api/__pycache__/*.pyc
+
+myenv/*
