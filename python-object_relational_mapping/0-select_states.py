@@ -1,10 +1,23 @@
 #!/usr/bin/python3
-"""Create a connection to the database and retrieve all states"""
+
+"""
+Create a connection to the database and retrieve all states sorted by id
+"""
+
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    """The code is not executed when the file is imported"""
+    """The code is not executed when the file is importe
+
+    Arguments:
+        sys.argv[1]: The MySQL username
+        sys.argv[2]: The MySQL password
+        sys.argv[3]: The MySQL database name
+
+    Returns:
+        The states in the database sorted by id
+    """
     db = MySQLdb.connect(  # Connect to the database
         host="localhost",  # My host, usually localhost
         user=sys.argv[1],  # The user name specified in the command line
