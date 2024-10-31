@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-Create a script that adds the State object “Louisiana” to the database hbtn_0e_6_usa
+Create a script that adds the State object “Louisiana”
+to the database hbtn_0e_6_usa
 
 Usage:
     Should take 3 arguments: mysql username, mysql password and database name
