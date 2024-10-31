@@ -6,6 +6,7 @@ import sys
 
 Base = declarative_base()
 
+
 class State(Base):
     """State class"""
     __tablename__ = 'states'
@@ -14,6 +15,7 @@ class State(Base):
                 nullable=False,
                 autoincrement=True)
     name = Column(String(128), nullable=False)
+
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
