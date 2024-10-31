@@ -49,8 +49,8 @@ if __name__ == "__main__":
     # Create a cursor object
     cursor = db.cursor()
     # Execute the query
-    cursor.execute("SELECT * FROM states WHERE name = %s ORDER BY id ASC",
-                   (state_name,))
+    cursor.execute("SELECT * FROM states WHERE name = %s \
+                   ORDER BY id ASC",(state_name,))
     # Fetch all the rows in a list of lists
     states = cursor.fetchall()
     # Iterate over the rows to print the states
