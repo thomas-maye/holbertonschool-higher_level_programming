@@ -6,8 +6,9 @@ states sorted by id from the database specified in the
 command line.
 """
 
-import MySQLdb
 import sys
+import MySQLdb
+
 
 if __name__ == "__main__":
     """
