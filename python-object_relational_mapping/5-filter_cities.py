@@ -10,14 +10,14 @@ import MySQLdb
 if __name__ == "__main__":
     """The script should take 4 arguments: mysql username, mysql password,
     database name and state name (SQL injection free!)
-    
+
     Usage:
-        ./5-filter_cities.py 
+        ./5-filter_cities.py
         <mysql username>
         <mysql password>
         <database name>
         <state name>
-    
+
     Arguments:
         mysql_username (str): MySQL username
         mysql_password (str): MySQL password
