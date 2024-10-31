@@ -29,7 +29,7 @@ if __name__ == "__main__":
     Returns:
         The states in the database sorted by id
     """
-    # Récupérer les arguments de la ligne de commande
+    # Get the arguments from the command line
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
     database_name = sys.argv[3]
