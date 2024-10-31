@@ -33,6 +33,7 @@ if __name__ == "__main__":
     mysql_username = sys.argv[1]
     mysql_password = sys.argv[2]
     database_name = sys.argv[3]
+    state_name = sys.argv[4]
     # Connect to the database
     db = MySQLdb.connect(
         # My host, usually localhost
@@ -48,14 +49,16 @@ if __name__ == "__main__":
         )
     # Create a cursor object
     cursor = db.cursor()
+    # Create a query string
+    query = "SELECT * FROM states WHERE name = '{}' \
+        ORDER BY id ASC".format(state_name)
     # Execute the query
-    cursor.execute("SELECT * FROM states WHERE name = %s \
-        ORDER BY id ASC", (sys.argv[4],))
+    cursor.execute(query)
     # Fetch all the rows in a list of lists
     states = cursor.fetchall()
     # Iterate over the rows to print the states
     for state in states:
-        if state[1] == sys.argv[4]:
+        if state[1] == state_name:
             # Print the state
             print(state)
     # Close the cursor and database
