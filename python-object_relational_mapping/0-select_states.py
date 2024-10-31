@@ -29,18 +29,22 @@ if __name__ == "__main__":
     Returns:
         The states in the database sorted by id
     """
+    # Récupérer les arguments de la ligne de commande
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
     # Connect to the database
     db = MySQLdb.connect(
         # My host, usually localhost
         host="localhost",
-        # The user name specified in the command line
-        user=sys.argv[1],
-        # The password specified in the command line
-        passwd=sys.argv[2],
-        # The database name specified in the command line
-        db=sys.argv[3],
         # The port number to connect to MySQL
-        port=3306
+        port=3306,
+        # The user name specified in the command line
+        user=mysql_username,
+        # The password specified in the command line
+        passwd=mysql_password,
+        # The database name specified in the command line
+        db=database_name
         )
 # Create a cursor object
 cursor = db.cursor()
