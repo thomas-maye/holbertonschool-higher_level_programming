@@ -17,7 +17,7 @@ Result:
 """
 
 import sys
-from model_state import Base, State
+from model_state import State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -38,10 +38,7 @@ if __name__ == "__main__":
     session.add(new_state)
     # Commit the transaction
     session.commit()
-    # Query the database
-    state = session.query(State).filter(
-        State.name == 'Louisiana').first()
     # Print the result
-    print("{}".format(state.id))
+    print((new_state.id))
     # Close the session
     session.close()
