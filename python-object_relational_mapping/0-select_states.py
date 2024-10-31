@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 """
-Create a connection to the database and retrieve all 
-states sorted by id from the database specified in the 
+Create a connection to the database and retrieve all
+states sorted by id from the database specified in the
 command line.
 """
 
@@ -11,13 +11,13 @@ import sys
 
 if __name__ == "__main__":
     """
-    Retrieve all states sorted by id from the database 
+    Retrieve all states sorted by id from the database
     specified in the command line.
 
     Usage:
-        ./0-select_states.py 
-        <mysql username> 
-        <mysql password> 
+        ./0-select_states.py
+        <mysql username>
+        <mysql password>
         <database name>
 
     Arguments:
