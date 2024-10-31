@@ -59,11 +59,7 @@ if __name__ == "__main__":
     # Fetch all the rows in a list of lists
     cities = cursor.fetchall()
     # Print the results
-    for city in cities:
-        if city != cities[-1]:
-            print(city[0], end=", ")
-        else:
-            print(city[0])
+    print(", ".join([city[0] for city in cities]))
     # Close all cursors and databases
     cursor.close()
     db.close()
