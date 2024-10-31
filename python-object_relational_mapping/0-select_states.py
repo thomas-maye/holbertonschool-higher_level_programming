@@ -46,16 +46,16 @@ if __name__ == "__main__":
         # The database name specified in the command line
         db=database_name
         )
-# Create a cursor object
-cursor = db.cursor()
-# Execute the query
-cursor.execute("SELECT * FROM states ORDER BY id ASC")
-# Fetch all the rows in a list of lists
-states = cursor.fetchall()
-# Iterate over the rows to print the states
-for state in states:
-    # Print the state
-    print(state)
-# Close the cursor and database
-cursor.close()
-db.close()
+    # Create a cursor object
+    cursor = db.cursor()
+    # Execute the query
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    # Fetch all the rows in a list of lists
+    states = cursor.fetchall()
+    # Iterate over the rows to print the states
+    for state in states:
+        # Print the state
+        print(state)
+    # Close the cursor and database
+    cursor.close()
+    db.close()
