@@ -40,8 +40,8 @@ if __name__ == "__main__":
         # The database name specified in the command line
         db=sys.argv[3],
         # The port number to connect to MySQL
-        port=3306)
-
+        port=3306
+        )
 # Create a cursor object
 cursor = db.cursor()
 # Execute the query
