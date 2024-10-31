@@ -56,7 +56,7 @@ if __name__ == "__main__":
     # Iterate over the rows to print the states
     for state in states:
         if state[1] == state_name:
-        # Print the state
+            # Print the state
             print(state)
     # Close the cursor and database
     cursor.close()
