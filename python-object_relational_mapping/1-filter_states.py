@@ -54,7 +54,8 @@ if __name__ == "__main__":
     # Iterate over the rows to print the states
     for state in states:
         # Print the state
-        print(state)
+        if state[1][0] == 'N':
+            print(state)
     # Close the cursor and database
     cursor.close()
     db.close()
