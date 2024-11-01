@@ -11,6 +11,27 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
+    """
+    Create a script that prints the State object with the name
+    passed as argument from the database hbtn_0e_6_usa
+
+    Usage:
+        ./10-model_state_my_get.py
+        <mysql username>
+        <mysql password>
+        <database name>
+        <state name>
+
+    Arguments:
+        username: the username
+        password: the password
+        database: the name of the database to connect
+        state_name: the name of the state to search
+
+    Returns:
+        The id of the state with the name passed as argument
+        or "Not found" if the state is not found
+    """
     # Get the arguments from the command line
     mysql_username, mysql_password, \
         database_name, state_name = sys.argv[1:5]

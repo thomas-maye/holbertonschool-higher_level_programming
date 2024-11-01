@@ -1,21 +1,8 @@
 #!/usr/bin/python3
 
 """
-Create a script that prints the first State
-object from the database hbtn_0e_6_usa
-
-Usage: ./8-model_state_fetch_first.py
-    <mysql username>
-    <mysql password>
-    <database name>
-
-Arguments:
-    mysql_username (str): MySQL username
-    mysql_password (str): MySQL password
-    database_name (str): MySQL database name
-
-Returns:
-    The first state in the database hbtn_0e_6_usa
+Create a script that prints the first State object
+from the database hbtn_0e_6_usa
 """
 
 import sys
@@ -25,6 +12,23 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
+    """Create a script that prints the first State
+    object from the database hbtn_0e_6_usa
+
+    Usage: ./8-model_state_fetch_first.py
+        <mysql username>
+        <mysql password>
+        <database name>
+
+    Arguments:
+        mysql_username (str): MySQL username
+        mysql_password (str): MySQL password
+        database_name (str): MySQL database name
+
+    Returns:
+        The first state in the database hbtn_0e_6_usa
+    """
+
     # Get the arguments from the command line
     mysql_username, mysql_password, database_name = sys.argv[1:4]
     # Create a connection to the database
