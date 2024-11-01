@@ -27,7 +27,8 @@ if __name__ == "__main__":
         database name: name of the database to access
 
     Returns:
-        Nothing
+        The list of cities with their state names in
+        the database hbtn_0e_14_usa
     """
 
     # Connect to the database
