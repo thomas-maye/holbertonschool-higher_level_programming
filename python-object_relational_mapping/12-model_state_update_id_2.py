@@ -30,6 +30,8 @@ if __name__ == "__main__":
     """
     # Get the arguments from the command line
     mysql_username, mysql_password, database_name = sys.argv[1:4]
+    state_id = 2
+    new_state_name = "New Mexico"
     # Create a connection to the database
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
                            .format(mysql_username, mysql_password,
@@ -39,8 +41,11 @@ if __name__ == "__main__":
     # Create a Session
     session = Session()
     # Query the database
-    state = session.query(State).filter(State.id == 2).first()
-    state.name = "New Mexico"
-    session.commit()
+    state = session.query(State).filter(State.id == state_id).first()
+    if state:
+        state.name = new_state_name
+        session.commit()
+    else:
+        print("Not found")
     # Close the session
     session.close()
