@@ -27,18 +27,23 @@ if __name__ == "__main__":
 
     Returns:
         The id of the new state added
-    ”"""
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
+    """
+    # Get the arguments from the command line
+    mysql_username, mysql_password, \
+        database_name = sys.argv[1:4]
+    # Create a connection to the database
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(username, password, database))
-
+                           .format(mysql_username, mysql_password, database_name))
+    # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
+    # Create a Session
     session = Session()
+    # Add a new state
     new_state = State(name='Louisiana')
+    # Add the new state to the session
     session.add(new_state)
+    # Commit the transaction
     session.commit()
     print(new_state.id)
+    # Close the session
     session.close()
