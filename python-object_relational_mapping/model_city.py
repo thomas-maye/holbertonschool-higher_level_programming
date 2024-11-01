@@ -11,6 +11,7 @@ import sys
 
 Base = declarative_base()
 
+
 class City(Base):
     """City class"""
     # Link to the MySQL table cities
