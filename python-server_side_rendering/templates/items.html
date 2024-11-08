@@ -1,0 +1,24 @@
+<!--In your templates folder, create a new HTML template named items.html with “Items List” for the title.
+This template should include a loop to iterate over a list of items and display each item.
+Items must be displayed as an unordered list.
+Add a conditional statement to display a message “No items found” if the list is empty. -->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Items List</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <h1>Items List</h1>
+    <ul>
+        {% for item in items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    {% if items == [] %}
+        <p>No items found</p>
+    {% endif %}
+    {% include 'footer.html' %}
+</body>
+</html>
