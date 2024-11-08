@@ -17,8 +17,11 @@ def contact():
 
 @app.route('/items')
 def items():
+    # Open JSON file
     with open('items.json', 'r') as file:
+        # Convert JSON to Python dictionary
         data=json.load(file)
+    # Get items from dictionary and if not found, return an empty list
     items=data.get('items', [])
     return render_template('items.html', items=items)
 
