@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const movies = data.results;
             const listMovies = document.getElementById('list_movies');
             movies.forEach(movie => {
-                const listItem = document.createElement('li');
-                listItem.textContent = movie.title;
-                listMovies.appendChild(listItem);
+                const ul = document.createElement('li');
+                ul.textContent = movie.title;
+                listMovies.appendChild(ul);
             });
         })
         .catch(error => console.error('Error:', error));
