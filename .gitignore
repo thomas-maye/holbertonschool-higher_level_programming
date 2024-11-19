@@ -124,3 +124,5 @@ python-server_side_rendering/output_1.txt
 python-server_side_rendering/output_2.txt
 python-server_side_rendering/output_3.txt
 python-server_side_rendering/template.txt
+
+javascript-dom_manipulation/*-main.html
